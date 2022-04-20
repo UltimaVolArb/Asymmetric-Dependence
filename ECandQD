@@ -1,0 +1,21 @@
+load 'D:\Stony Brook AMS\AMS 2022 Spring\AMS517\AMS517 project\Paper 6 draft\Patton_copula_toolbox\ibm_ccola_rets.txt' -ascii;
+sf = ibm_ccola_rets(:,1); %Five year to fed fund rate spread
+lmt = ibm_ccola_rets(:,2);%Ten year to two year spread
+
+% exceedence correlations
+inc = 0.025;
+qq = (0.1:inc:0.9)';
+qq2 = [(0.1:inc:0.5)';(0.5:inc:0.9)'];
+
+temp1 = ang_chen1(sf,lmt,qq);
+figure(1),plot(qq2,temp1,'o-')
+title ('Exceedence correlation')
+xlabel('Quantile')
+ylabel('Exceedence correlation')
+
+% quantile dependence
+temp2 = quantiledep(sf,lmt,qq);
+figure(2),plot(qq,temp2,'o-');
+title ('Tail dependence')
+xlabel('Quantile')
+ylabel('Quantile dependence')

@@ -19,3 +19,7 @@ figure(2),plot(qq,temp2,'o-');
 title ('Tail dependence')
 xlabel('Quantile')
 ylabel('Quantile dependence')
+
+
+
+%Source: http://public.econ.duke.edu/~ap172/
